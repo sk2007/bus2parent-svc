@@ -17,14 +17,4 @@ public class BusDao {
     public List<Bus> getBuses() {
         return namedParameterJdbcTemplate.query("SELECT BusNumber, BusPlate FROM BUS", new HashMap<>(), new BusRowMapper());
     }
-
-    /*public List<Bus> getBuses2() {
-        SqlParameterSource namedParameters = new MapSqlParameterSource().addValue("id", 1);
-        return namedParameterJdbcTemplate.queryForList(
-                "SELECT BusNumber, BusPlate FROM BUS", new HashMap<>(), Bus.class);
-
-
-    }*/
-
-
 }

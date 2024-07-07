@@ -11,13 +11,11 @@ import java.util.List;
 @Service
 public class DriverService {
 
-    private static List<Driver> driverList = new ArrayList<>();
-
     @Autowired
     private DriverDao driverDao;
 
     public List<Driver> getDrivers() {
-        driverList = driverDao.getDrivers();
+        List<Driver> driverList = driverDao.getDrivers();
         return driverList;
     }
 

@@ -18,8 +18,8 @@ public class DriverController {
 
     @GetMapping("/v1/drivers")
     public ResponseEntity<List<Driver>> getDriver() {
-        List<Driver> myDrivers = driverService.getDrivers();
-        return new ResponseEntity<>(myDrivers, HttpStatus.OK);
+        List<Driver> drivers = driverService.getDrivers();
+        return new ResponseEntity<>(drivers, HttpStatus.OK);
     }
 
     @GetMapping("/v1/drivers/{id}")

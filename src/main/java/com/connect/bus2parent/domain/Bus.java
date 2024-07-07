@@ -30,14 +30,6 @@ public class Bus {
     }
 
     @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("busPlate", busPlate)
-                .append("busNumber", busNumber)
-                .toString();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
@@ -51,5 +43,13 @@ public class Bus {
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37).append(busPlate).append(busNumber).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("busPlate", busPlate)
+                .append("busNumber", busNumber)
+                .toString();
     }
 }

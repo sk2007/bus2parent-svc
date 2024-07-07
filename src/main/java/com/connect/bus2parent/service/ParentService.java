@@ -10,13 +10,12 @@ import java.util.List;
 
 @Service
 public class ParentService {
-    private static List<Parent> myParents = new ArrayList<>();
 
     @Autowired
     private ParentDao parentDao;
 
     public List<Parent> getParents() {
-        myParents = parentDao.getParents();
-        return myParents;
+        List<Parent> parents = parentDao.getParents();
+        return parents;
     }
 }

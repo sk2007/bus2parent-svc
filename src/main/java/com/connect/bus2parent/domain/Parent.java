@@ -42,15 +42,6 @@ public class Parent {
     }
 
     @Override
-    public String toString() {
-        return new ToStringBuilder(this)
-                .append("firstName", firstName)
-                .append("lastName", lastName)
-                .append("email", email)
-                .toString();
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
 
@@ -64,5 +55,14 @@ public class Parent {
     @Override
     public int hashCode() {
         return new HashCodeBuilder(17, 37).append(firstName).append(lastName).append(email).toHashCode();
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+                .append("firstName", firstName)
+                .append("lastName", lastName)
+                .append("email", email)
+                .toString();
     }
 }

@@ -18,7 +18,7 @@ public class ParentController {
 
     @GetMapping("/v1/parents")
     public ResponseEntity<List<Parent>> getParent() {
-        List<Parent> myParents = parentService.getParents();
-        return new ResponseEntity<>(myParents, HttpStatus.OK);
+        List<Parent> parents = parentService.getParents();
+        return new ResponseEntity<>(parents, HttpStatus.OK);
     }
 }
