@@ -16,6 +16,13 @@ public class Driver {
     @JsonProperty("id")
     private int id;
 
+    public Driver() {   }
+
+    public Driver(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
     public int id() {
         return id;
     }

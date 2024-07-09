@@ -35,4 +35,11 @@ public class DriverService {
             driverDao.createDriver(d);
         }
     }
+
+    public void registerDriver(Driver d) {
+        if (d.id() == 0) {
+            d.setId(driverDao.getNewID());
+        }
+        driverDao.createDriver(d);
+    }
 }

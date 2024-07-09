@@ -37,4 +37,9 @@ public class DriverDao {
         System.out.println("rows affected: " + rowsAffected);
         return rowsAffected;
     }
+
+    public int getNewID() {
+        int max = namedParameterJdbcTemplate.queryForObject("SELECT MAX(ID) FROM DRIVER", new HashMap<>(), Integer.class);
+        return (max + 1);
+    }
 }

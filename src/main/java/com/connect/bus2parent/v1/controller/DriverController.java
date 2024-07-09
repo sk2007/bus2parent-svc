@@ -42,4 +42,11 @@ public class DriverController {
         driverService.createDrivers(drivers);
         return new ResponseEntity<>(drivers, HttpStatus.CREATED);
     }
+
+    @PostMapping("/v1/drivers/register")
+    public ResponseEntity<Driver> registerDriver(@RequestBody Driver driver) {
+        // System.out.println("I made it to the right function!!!");
+        driverService.registerDriver(driver);
+        return new ResponseEntity<>(driver, HttpStatus.CREATED);
+    }
 }
