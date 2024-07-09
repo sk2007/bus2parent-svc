@@ -14,13 +14,13 @@ public class Driver {
     private String lastName;
 
     @JsonProperty("id")
-    private String id;
+    private int id;
 
-    public String id() {
+    public int id() {
         return id;
     }
 
-    public Driver setId(String id) {
+    public Driver setId(int id) {
         this.id = id;
         return this;
     }

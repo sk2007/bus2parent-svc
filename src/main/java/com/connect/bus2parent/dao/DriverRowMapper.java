@@ -11,7 +11,7 @@ public class DriverRowMapper implements RowMapper<Driver> {
     @Override
     public Driver mapRow(ResultSet resultSet, int i) throws SQLException{
         Driver driver = new Driver();
-        driver.setId(resultSet.getString("ID"));
+        driver.setId(resultSet.getInt("ID"));
         driver.setFirstName(resultSet.getString(("FirstName")));
         driver.setLastName(resultSet.getString(("LastName")));
         return driver;

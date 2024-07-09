@@ -19,7 +19,7 @@ public class DriverService {
         return driverList;
     }
 
-    public Driver getDriver(String id) {
+    public Driver getDriver(int id) {
         Driver driver = driverDao.getDriver(id);
         return driver;
     }

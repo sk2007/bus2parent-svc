@@ -19,16 +19,16 @@ public class DriverDao {
         return namedParameterJdbcTemplate.query("SELECT ID, LastName, FirstName FROM DRIVER", new HashMap<>(), new DriverRowMapper());
     }
 
-    public Driver getDriver(String id) {
+    public Driver getDriver(int id) {
         System.out.println("id received: " + id);
-        Map<String, String> paramMap= new HashMap<>();
+        Map<String, Object> paramMap= new HashMap<>();
         paramMap.put("ID", id);
 
         return namedParameterJdbcTemplate.queryForObject("select ID, LastName, FirstName from DRIVER where ID=:ID", paramMap, new DriverRowMapper());
     }
 
     public int createDriver(Driver myDriver) {
-        Map<String, String> parameters = new HashMap<>();
+        Map<String, Object> parameters = new HashMap<>();
         parameters.put("LastName", myDriver.lastName());
         parameters.put("FirstName", myDriver.firstName());
         parameters.put("ID", myDriver.id());

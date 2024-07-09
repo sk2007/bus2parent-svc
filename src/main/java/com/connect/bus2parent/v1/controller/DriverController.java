@@ -23,7 +23,7 @@ public class DriverController {
     }
 
     @GetMapping("/v1/drivers/{id}")
-    public ResponseEntity<Driver> getDriver(@PathVariable("id") String id) {
+    public ResponseEntity<Driver> getDriver(@PathVariable("id") int id) {
         System.out.println("id from path: " + id);
         Driver driver = driverService.getDriver(id);
         return new ResponseEntity<>(driver, HttpStatus.OK);
