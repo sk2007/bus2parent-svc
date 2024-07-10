@@ -25,7 +25,6 @@ public class DriverService {
     }
 
     public int createDriver(Driver myDriver) {
-        System.out.println("driver in service: " + myDriver);
         int changed = driverDao.createDriver(myDriver);
         return changed;
     }

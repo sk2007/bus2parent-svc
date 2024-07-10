@@ -13,7 +13,7 @@ public class ParentRowMapper implements RowMapper<Parent> {
         Parent parent = new Parent();
         parent.setFirstName(resultSet.getString("FirstName"));
         parent.setLastName(resultSet.getString("LastName"));
-        parent.setEmail(resultSet.getString("EmailAddress"));
+        parent.setEmailAddress(resultSet.getString("EmailAddress"));
         return parent;
     }
 

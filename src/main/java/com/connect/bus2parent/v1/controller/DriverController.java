@@ -24,28 +24,24 @@ public class DriverController {
 
     @GetMapping("/v1/drivers/{id}")
     public ResponseEntity<Driver> getDriver(@PathVariable("id") int id) {
-        System.out.println("id from path: " + id);
         Driver driver = driverService.getDriver(id);
         return new ResponseEntity<>(driver, HttpStatus.OK);
     }
 
     @PostMapping("/v1/drivers")
     public ResponseEntity<Driver> createDriver(@RequestBody Driver driver) {
-        System.out.println("Driver payload:" +  driver);
         driverService.createDriver(driver);
         return new ResponseEntity<>(driver, HttpStatus.CREATED);
     }
 
     @PostMapping("/v1/drivers/batch")
     public ResponseEntity<List<Driver>> createDrivers(@RequestBody List<Driver> drivers) {
-        System.out.println("Drivers payload:" +  drivers);
         driverService.createDrivers(drivers);
         return new ResponseEntity<>(drivers, HttpStatus.CREATED);
     }
 
     @PostMapping("/v1/drivers/register")
     public ResponseEntity<Driver> registerDriver(@RequestBody Driver driver) {
-        // System.out.println("I made it to the right function!!!");
         driverService.registerDriver(driver);
         return new ResponseEntity<>(driver, HttpStatus.CREATED);
     }

@@ -11,15 +11,15 @@ public class Parent {
     private String firstName;
     @JsonProperty("last_name")
     private String lastName;
-    @JsonProperty
-    private String email;
+    @JsonProperty("email_address")
+    private String emailAddress;
 
-    public String email() {
-        return email;
+    public String emailAddress() {
+        return emailAddress;
     }
 
-    public Parent setEmail(String email) {
-        this.email = email;
+    public Parent setEmailAddress(String emailAddress) {
+        this.emailAddress = emailAddress;
         return this;
     }
 
@@ -49,12 +49,12 @@ public class Parent {
 
         Parent parent = (Parent) o;
 
-        return new EqualsBuilder().append(firstName, parent.firstName).append(lastName, parent.lastName).append(email, parent.email).isEquals();
+        return new EqualsBuilder().append(firstName, parent.firstName).append(lastName, parent.lastName).append(emailAddress, parent.emailAddress).isEquals();
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder(17, 37).append(firstName).append(lastName).append(email).toHashCode();
+        return new HashCodeBuilder(17, 37).append(firstName).append(lastName).append(emailAddress).toHashCode();
     }
 
     @Override
@@ -62,7 +62,7 @@ public class Parent {
         return new ToStringBuilder(this)
                 .append("firstName", firstName)
                 .append("lastName", lastName)
-                .append("email", email)
+                .append("email", emailAddress)
                 .toString();
     }
 }

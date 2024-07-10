@@ -1,12 +1,12 @@
 package com.connect.bus2parent.v1.controller;
 
 import com.connect.bus2parent.domain.Bus;
+import com.connect.bus2parent.domain.Driver;
 import com.connect.bus2parent.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,6 +20,30 @@ public class BusController {
     public ResponseEntity<List<Bus>> getBus() {
         List<Bus> myBuses = busService.getBuses();
         return new ResponseEntity<>(myBuses, HttpStatus.OK);
+    }
+
+    @GetMapping("/v1/buses/{BusNumber}")
+    public ResponseEntity<Bus> getBus(@PathVariable("BusNumber") int BusNumber) {
+        Bus bus = busService.getBus(BusNumber);
+        return new ResponseEntity<>(bus, HttpStatus.OK);
+    }
+
+    @PostMapping("/v1/buses")
+    public ResponseEntity<Bus> createBus(@RequestBody Bus bus) {
+        busService.createBus(bus);
+        return new ResponseEntity<>(bus, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/v1/buses/batch")
+    public ResponseEntity<List<Bus>> createBuses(@RequestBody List<Bus> buses) {
+        busService.createBuses(buses);
+        return new ResponseEntity<>(buses, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/v1/buses/register")
+    public ResponseEntity<Bus> registerBus(@RequestBody Bus bus) {
+        busService.registerBus(bus);
+        return new ResponseEntity<>(bus, HttpStatus.CREATED);
     }
 
 }

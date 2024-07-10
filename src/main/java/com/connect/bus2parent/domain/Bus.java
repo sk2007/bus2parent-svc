@@ -11,6 +11,12 @@ public class Bus {
     @JsonProperty("bus_number")
     private int busNumber;
 
+    public Bus() {  }
+
+    public Bus(String busPlate) {
+        this.busPlate = busPlate;
+    }
+
     public String busPlate() {
         return busPlate;
     }

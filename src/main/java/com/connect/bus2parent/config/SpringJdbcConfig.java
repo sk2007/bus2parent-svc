@@ -19,8 +19,6 @@ public class SpringJdbcConfig {
         dataSource.setUsername("root");
         //dataSource.setPassword("guest_password");
 
-        System.out.println("configured database");
-
         return dataSource;
     }
 }

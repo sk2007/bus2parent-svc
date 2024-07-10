@@ -5,7 +5,6 @@ import com.connect.bus2parent.domain.Parent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -15,7 +14,20 @@ public class ParentService {
     private ParentDao parentDao;
 
     public List<Parent> getParents() {
-        List<Parent> parents = parentDao.getParents();
-        return parents;
+        return parentDao.getParents();
+    }
+
+    public Parent getParent(String emailAddress) {
+        return parentDao.getParent(emailAddress);
+    }
+
+    public int createParent(Parent parent) {
+        return parentDao.createParent(parent);
+    }
+
+    public void createParents(List<Parent> parents) {
+        for (Parent p : parents) {
+            parentDao.createParent(p);
+        }
     }
 }
