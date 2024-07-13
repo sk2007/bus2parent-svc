@@ -34,4 +34,12 @@ public class ParentDao {
         int rowsAffected = namedParameterJdbcTemplate.update("INSERT INTO PARENT (FirstName, LastName, EmailAddress) VALUES (:FirstName, :LastName, :EmailAddress)", params);
         return rowsAffected;
     }
+
+    public int removeParent(String emailAddress) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("EmailAddress", emailAddress);
+
+        int rowsAffected = namedParameterJdbcTemplate.update("DELETE FROM PARENT WHERE EmailAddress=:EmailAddress", params);
+        return rowsAffected;
+    }
 }

@@ -45,4 +45,11 @@ public class DriverController {
         driverService.registerDriver(driver);
         return new ResponseEntity<>(driver, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/v1/drivers/{id}")
+    public ResponseEntity<Driver> removeDriver(@PathVariable("id") int id) {
+        Driver driver = driverService.getDriver(id);
+        driverService.removeDriver(id);
+        return new ResponseEntity<>(driver, HttpStatus.OK);
+    }
 }

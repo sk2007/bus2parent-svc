@@ -41,4 +41,8 @@ public class BusService {
         }
         busDao.createBus(b);
     }
+
+    public int removeBus(int busNumber) {
+        return busDao.removeBus(busNumber);
+    }
 }

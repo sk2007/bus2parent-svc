@@ -42,4 +42,12 @@ public class DriverDao {
         int max = namedParameterJdbcTemplate.queryForObject("SELECT MAX(ID) FROM DRIVER", new HashMap<>(), Integer.class);
         return (max + 1);
     }
+
+    public int removeDriver(int id) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("ID", id);
+
+        int rowsAffected = namedParameterJdbcTemplate.update("DELETE FROM DRIVER WHERE ID=:ID", params);
+        return rowsAffected;
+    }
 }

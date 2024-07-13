@@ -38,4 +38,11 @@ public class ParentController {
         parentService.createParents(parents);
         return new ResponseEntity<>(parents, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/v1/parents/{email}")
+    public ResponseEntity<Parent> removeParent(@PathVariable("email") String emailAddress) {
+        Parent parent = parentService.getParent(emailAddress);
+        parentService.removeParent(emailAddress);
+        return new ResponseEntity<>(parent, HttpStatus.OK);
+    }
 }

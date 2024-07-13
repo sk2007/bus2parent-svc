@@ -1,7 +1,6 @@
 package com.connect.bus2parent.v1.controller;
 
 import com.connect.bus2parent.domain.Bus;
-import com.connect.bus2parent.domain.Driver;
 import com.connect.bus2parent.service.BusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -44,6 +43,13 @@ public class BusController {
     public ResponseEntity<Bus> registerBus(@RequestBody Bus bus) {
         busService.registerBus(bus);
         return new ResponseEntity<>(bus, HttpStatus.CREATED);
+    }
+
+    @DeleteMapping("/v1/buses/{busNumber}")
+    public ResponseEntity<Bus> removeBus(@PathVariable("busNumber") int busNumber) {
+        Bus bus = busService.getBus(busNumber);
+        busService.removeBus(busNumber);
+        return new ResponseEntity<>(bus, HttpStatus.OK);
     }
 
 }

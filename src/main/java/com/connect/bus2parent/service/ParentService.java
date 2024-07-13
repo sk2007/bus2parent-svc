@@ -30,4 +30,8 @@ public class ParentService {
             parentDao.createParent(p);
         }
     }
+
+    public int removeParent(String emailAddress) {
+        return parentDao.removeParent(emailAddress);
+    }
 }

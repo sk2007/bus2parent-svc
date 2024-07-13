@@ -41,4 +41,8 @@ public class DriverService {
         }
         driverDao.createDriver(d);
     }
+
+    public int removeDriver(int id) {
+        return driverDao.removeDriver(id);
+    }
 }
