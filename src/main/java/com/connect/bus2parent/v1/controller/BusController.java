@@ -52,4 +52,10 @@ public class BusController {
         return new ResponseEntity<>(bus, HttpStatus.OK);
     }
 
+    @PutMapping("/v1/buses/{busNumber}")
+    public ResponseEntity<Bus> putBus(@RequestBody String busPlate, @PathVariable("busNumber") int busNumber) {
+        busService.updateBusPlate(busNumber, busPlate);
+        return new ResponseEntity<>(busService.getBus(busNumber), HttpStatus.ACCEPTED);
+    }
+
 }

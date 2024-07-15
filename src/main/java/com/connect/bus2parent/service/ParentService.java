@@ -34,4 +34,8 @@ public class ParentService {
     public int removeParent(String emailAddress) {
         return parentDao.removeParent(emailAddress);
     }
+
+    public void updateParent(Parent parent, String email) {
+        parentDao.updateParent(parent, email);
+    }
 }

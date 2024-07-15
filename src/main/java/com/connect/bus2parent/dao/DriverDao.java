@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import javax.print.attribute.HashPrintJobAttributeSet;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,5 +50,14 @@ public class DriverDao {
 
         int rowsAffected = namedParameterJdbcTemplate.update("DELETE FROM DRIVER WHERE ID=:ID", params);
         return rowsAffected;
+    }
+
+    public void updateDriver(int id, Driver driver) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("ID", id);
+        params.put("FirstName", driver.firstName());
+        params.put("LastName", driver.lastName());
+
+        namedParameterJdbcTemplate.update("UPDATE DRIVER SET FirstName=:FirstName, LastName=:LastName WHERE ID=:ID", params);
     }
 }

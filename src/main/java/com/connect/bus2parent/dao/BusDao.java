@@ -47,4 +47,11 @@ public class BusDao {
         int rowsAffected = namedParameterJdbcTemplate.update("DELETE FROM BUS WHERE BusNumber=:BusNumber", params);
         return rowsAffected;
     }
+
+    public void updateBusPlate(int busNumber, String busPlate) {
+        Map<String, Object> params = new HashMap<>();
+        params.put("BusNumber", busNumber);
+        params.put("BusPlate", busPlate);
+        namedParameterJdbcTemplate.update("UPDATE BUS SET BusPlate=:BusPlate WHERE BusNumber=:BusNumber", params);
+    }
 }

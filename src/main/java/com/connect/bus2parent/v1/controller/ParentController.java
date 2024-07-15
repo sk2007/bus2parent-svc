@@ -45,4 +45,10 @@ public class ParentController {
         parentService.removeParent(emailAddress);
         return new ResponseEntity<>(parent, HttpStatus.OK);
     }
+
+    @PutMapping("/v1/parents/{email}")
+    public ResponseEntity<Parent> updateParent(@RequestBody Parent parent, @PathVariable("email") String email){
+        parentService.updateParent(parent, email);
+        return new ResponseEntity<>(parentService.getParent(email), HttpStatus.ACCEPTED);
+    }
 }

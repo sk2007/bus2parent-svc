@@ -45,4 +45,8 @@ public class BusService {
     public int removeBus(int busNumber) {
         return busDao.removeBus(busNumber);
     }
+
+    public void updateBusPlate(int busNumber, String busPlate) {
+        busDao.updateBusPlate(busNumber, busPlate);
+    }
 }

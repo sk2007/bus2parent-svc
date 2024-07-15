@@ -52,4 +52,10 @@ public class DriverController {
         driverService.removeDriver(id);
         return new ResponseEntity<>(driver, HttpStatus.OK);
     }
+
+    @PutMapping ("/v1/drivers/{id}")
+    public ResponseEntity<Driver> updateDriver(@RequestBody Driver driver, @PathVariable("id") int id) {
+        driverService.updateDriver(id, driver);
+        return new ResponseEntity<>(driverService.getDriver(id), HttpStatus.ACCEPTED);
+    }
 }

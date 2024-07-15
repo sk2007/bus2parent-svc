@@ -45,4 +45,8 @@ public class DriverService {
     public int removeDriver(int id) {
         return driverDao.removeDriver(id);
     }
+
+    public void updateDriver(int id, Driver driver) {
+        driverDao.updateDriver(id, driver);
+    }
 }
