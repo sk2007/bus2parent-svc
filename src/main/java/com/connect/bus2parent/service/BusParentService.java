@@ -3,6 +3,7 @@ package com.connect.bus2parent.service;
 import com.connect.bus2parent.domain.BusParent;
 import com.connect.bus2parent.dao.BusParentDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -22,7 +23,11 @@ public class BusParentService {
     }
 
     public int createBusParent(BusParent busParent) {
-        return busParentDao.createBusParent(busParent);
+        try {
+            return busParentDao.createBusParent(busParent);
+        } catch (DuplicateKeyException e) {
+            throw new DuplicateSubscriptionException(busParent.busID(), busParent.parentEmail());
+        }
     }
 
     public int removeBusParent(int busNumber, String parentEmail) {

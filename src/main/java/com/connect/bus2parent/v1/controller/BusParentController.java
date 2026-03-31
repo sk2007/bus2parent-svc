@@ -2,8 +2,8 @@ package com.connect.bus2parent.v1.controller;
 
 import com.connect.bus2parent.domain.BusParent;
 import com.connect.bus2parent.service.BusParentService;
+import com.connect.bus2parent.service.DuplicateSubscriptionException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -33,7 +33,7 @@ public class BusParentController {
         try {
             busParentService.createBusParent(busParent);
             return new ResponseEntity<>(busParent, HttpStatus.CREATED);
-        } catch (DuplicateKeyException e) {
+        } catch (DuplicateSubscriptionException e) {
             return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
     }
@@ -46,7 +46,6 @@ public class BusParentController {
         if (rowsDeleted == 0) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        BusParent removed = new BusParent(busNumber, parentEmail);
-        return new ResponseEntity<>(removed, HttpStatus.OK);
+        return new ResponseEntity<>(new BusParent(busNumber, parentEmail), HttpStatus.OK);
     }
 }
