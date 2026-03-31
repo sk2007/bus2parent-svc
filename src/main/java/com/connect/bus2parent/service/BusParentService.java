@@ -16,4 +16,16 @@ public class BusParentService {
     public List<BusParent> getBusParents() {
         return busParentDao.getBusParents();
     }
+
+    public List<BusParent> getBusParentsByBus(int busNumber) {
+        return busParentDao.getBusParentsByBus(busNumber);
+    }
+
+    public int createBusParent(BusParent busParent) {
+        return busParentDao.createBusParent(busParent);
+    }
+
+    public int removeBusParent(int busNumber, String parentEmail) {
+        return busParentDao.removeBusParent(busNumber, parentEmail);
+    }
 }
