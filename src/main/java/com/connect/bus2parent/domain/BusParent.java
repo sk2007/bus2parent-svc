@@ -1,11 +1,16 @@
 package com.connect.bus2parent.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 public class BusParent {
+
+    @JsonProperty("bus_id")
     int busID;
+
+    @JsonProperty("parent_email")
     String parentEmail;
 
     public BusParent() { }
@@ -36,12 +41,12 @@ public class BusParent {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-
         if (o == null || getClass() != o.getClass()) return false;
-
         BusParent busParent = (BusParent) o;
-
-        return new EqualsBuilder().append(busID, busParent.busID).append(parentEmail, busParent.parentEmail).isEquals();
+        return new EqualsBuilder()
+            .append(busID, busParent.busID)
+            .append(parentEmail, busParent.parentEmail)
+            .isEquals();
     }
 
     @Override
@@ -52,8 +57,8 @@ public class BusParent {
     @Override
     public String toString() {
         return new ToStringBuilder(this)
-                .append("busID", busID)
-                .append("parentEmail", parentEmail)
-                .toString();
+            .append("busID", busID)
+            .append("parentEmail", parentEmail)
+            .toString();
     }
 }
