@@ -17,6 +17,9 @@ public class BusLocationService {
         return busLocationDao.getAllLocations();
     }
 
+    /**
+     * @return the location for the given bus number, or {@code null} if not found
+     */
     public BusLocation getLocation(int busNumber) {
         return busLocationDao.getLocation(busNumber);
     }

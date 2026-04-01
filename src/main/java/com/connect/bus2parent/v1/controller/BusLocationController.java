@@ -33,6 +33,6 @@ public class BusLocationController {
     @PostMapping("/v1/locations")
     public ResponseEntity<BusLocation> updateLocation(@RequestBody BusLocation location) {
         busLocationService.updateLocation(location);
-        return new ResponseEntity<>(location, HttpStatus.OK);
+        return new ResponseEntity<>(location, HttpStatus.CREATED);
     }
 }
