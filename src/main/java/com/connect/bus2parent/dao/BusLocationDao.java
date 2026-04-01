@@ -2,6 +2,7 @@ package com.connect.bus2parent.dao;
 
 import com.connect.bus2parent.domain.BusLocation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -26,11 +27,15 @@ public class BusLocationDao {
     public BusLocation getLocation(int busNumber) {
         Map<String, Object> params = new HashMap<>();
         params.put("BusNumber", busNumber);
-        return namedParameterJdbcTemplate.queryForObject(
-            "SELECT BusNumber, Latitude, Longitude FROM BUS_LOCATION WHERE BusNumber=:BusNumber",
-            params,
-            new BusLocationRowMapper()
-        );
+        try {
+            return namedParameterJdbcTemplate.queryForObject(
+                "SELECT BusNumber, Latitude, Longitude FROM BUS_LOCATION WHERE BusNumber=:BusNumber",
+                params,
+                new BusLocationRowMapper()
+            );
+        } catch (EmptyResultDataAccessException e) {
+            return null;
+        }
     }
 
     public int upsertLocation(BusLocation location) {
