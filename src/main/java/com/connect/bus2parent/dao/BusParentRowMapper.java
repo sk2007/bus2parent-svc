@@ -3,7 +3,6 @@ package com.connect.bus2parent.dao;
 import com.connect.bus2parent.domain.BusParent;
 import org.springframework.jdbc.core.RowMapper;
 
-import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 

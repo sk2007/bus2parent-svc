@@ -8,10 +8,10 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class BusParent {
 
     @JsonProperty("bus_id")
-    int busID;
+    private int busID;
 
     @JsonProperty("parent_email")
-    String parentEmail;
+    private String parentEmail;
 
     public BusParent() { }
 
